@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GLIMPSE — Explore. Remember. Revisit.</title>
+  <meta name="description" content="GLIMPSE: Global–Local Indexing with Multi-Precision Spectral Encoding for Explorable Video World Models. A memory interface for camera-controlled visual exploration.">
+  <meta property="og:title" content="GLIMPSE — Explore. Remember. Revisit.">
+  <meta property="og:description" content="Geometry-addressed memory for camera-controlled video world models.">
+  <meta property="og:image" content="https://rabberk.github.io/glimpse-project/assets/hero.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#080e11">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#research">Skip to research</a>
+<header class="nav"><a class="brand" href="#top" aria-label="GLIMPSE home"><span class="brand-mark">G</span> GLIMPSE</a><nav aria-label="Main navigation"><a href="#method">Method</a><a href="#results">Results</a><a href="#explore">Explore</a><a class="nav-paper" href="assets/paper.pdf" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a></nav></header>
+<main>
+<section id="top" class="hero">
+  <video id="hero-video" class="hero-film" muted loop playsinline preload="none" poster="assets/hero.jpg" aria-label="Generated mountain village exploration"><source data-src="assets/hero.mp4" type="video/mp4"></video>
+  <div class="hero-shade"></div><div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-content"><div class="eyebrow"><span class="status-dot"></span> CAMERA-CONTROLLED VIDEO WORLD MODELS</div>
+    <h1>GLIMPSE<span class="title-dot">.</span></h1><p class="hero-line">Explore. Remember.<br><em>Revisit.</em></p>
+    <p class="hero-description">A world worth exploring.<br>A memory that brings you back.</p>
+    <div class="hero-actions"><button class="button primary" id="watch-demo"><span aria-hidden="true">▶</span> Watch the film <span class="duration">01:38</span></button><a class="button ghost" href="assets/paper.pdf" target="_blank" rel="noopener">Read the paper ↗</a></div>
+  </div>
+  <div class="hero-bottom"><span>GENERATED EXPLORATION <span class="subtle">/ GLIMPSE</span></span><button id="hero-toggle" class="text-button" aria-label="Pause background video">Pause motion Ⅱ</button><a href="#research" class="scroll-hint">DISCOVER <span>↓</span></a></div>
+</section>
+<section id="research" class="research section wrap">
+  <div class="section-kicker">THE RESEARCH <span>01 / 05</span></div>
+  <h2 class="paper-title">Global–Local Indexing with<br>Multi-Precision Spectral Encoding<br><span>for Explorable Video World Models</span></h2>
+  <p class="authors">Zhufeng Xu <span>·</span> Henglei Lv <span>·</span> Bailin Deng <span>·</span> Yikang Ding<br>Xiaoqiang Liu <span>·</span> Guoxin Zhang <span>·</span> Hongbo Fu <span>·</span> Lin Gao<sup>*</sup></p>
+  <p class="correspondence">* Corresponding author</p>
+  <div class="intro-grid"><h3>Remember the scene.<br><span>Not the projection error.</span></h3><div><p>When a camera returns, a video world model should recover what it has seen. But preserving historical features is only half the problem: an inaccurate geometric address can still send attention to the wrong place.</p><p>GLIMPSE preserves source patch content and regulates its positional address. Local patch memory supplies view-specific appearance, recurrent global memory provides scene context, and STaPE makes positional transport less sensitive to projection errors.</p></div></div>
+</section>
+<section id="method" class="method section">
+  <div class="wrap"><div class="section-kicker">INSIDE THE MEMORY <span>02 / 05</span></div><div class="section-heading"><h2>Keep the content.<br><em>Rethink the address.</em></h2><p>Three complementary pieces.<br>One geometry-aware memory interface.</p></div>
+  <div class="method-steps"><article><span class="step-number">01</span><h3>Global context</h3><p>A frozen recurrent memory summarizes the scene beyond any single view.</p></article><article><span class="step-number">02</span><h3>Local evidence</h3><p>Footprint-guided retrieval selects original historical patches under a fixed local read budget.</p></article><article><span class="step-number">03</span><h3>Robust addressing</h3><p>STaPE couples band-wise coordinate precision with geometry-conditioned spectral attenuation.</p></article></div>
+  <figure class="method-figure"><img src="assets/method.png" loading="lazy" alt="GLIMPSE architecture with geometry-indexed local pointer memory and recurrent global context"><figcaption>Global and local memory are read with separate attention normalization, then fused into the generator.</figcaption></figure>
+  <div class="mechanism-note"><div class="spectral-art" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div><span class="eyebrow">SPATIO-TEMPORAL ALIGNED POSITIONAL ENCODING</span><h3>Different frequencies.<br>Different positional precision.</h3><p>High, middle, and low rotary bands use cell, half-cell, and continuous coordinates. Depth smoothness and temporal lag modulate the spatial frequency components of memory keys and values.</p></div></div></div>
+</section>
+<section id="results" class="results section wrap"><div class="section-kicker">SEE IT IN MOTION <span>03 / 05</span></div><div class="section-heading"><h2>A turn. A return.<br><em>The same world.</em></h2><p>Original generation results.<br>Matched scenes, side-by-side playback.</p></div>
+  <div class="feature-label"><span class="pill">CAMERA CONTROL</span><span>Following the requested trajectory</span></div>
+  <figure class="video-frame"><video controls playsinline preload="none" poster="assets/chapter-2.jpg" aria-label="Camera control comparison"><source data-src="assets/chapter-2.mp4" type="video/mp4"></video></figure>
+  <p class="media-note">GLIMPSE, UCM, ReWorld and SPMem. Original method labels and frame-aligned playback retained.</p>
+  <div class="revisit-heading"><h3>Look left. Look right.<br><span>Bring both views back.</span></h3><p>The Y-trajectory asks the final view to reuse complementary observations from different moments, rather than simply retrace a path.</p></div>
+  <div class="tabs" role="tablist" aria-label="Revisitation scenes"><button role="tab" aria-selected="true" aria-controls="revisit-panel" id="scene-3" data-chapter="3" data-name="Suburban house and garden">01 / House & garden</button><button role="tab" aria-selected="false" tabindex="-1" aria-controls="revisit-panel" id="scene-4" data-chapter="4" data-name="Tree-lined city street">02 / City street</button><button role="tab" aria-selected="false" tabindex="-1" aria-controls="revisit-panel" id="scene-5" data-chapter="5" data-name="Mountain village">03 / Mountain village</button></div>
+  <div id="revisit-panel" role="tabpanel" aria-labelledby="scene-3"><figure class="video-frame"><video id="revisit-video" controls playsinline preload="none" poster="assets/chapter-3.jpg" aria-label="Suburban house and garden comparison"><source data-src="assets/chapter-3.mp4" type="video/mp4"></video></figure></div>
+  <p class="media-note">Five complete generation pipelines. Selected qualitative examples, not a substitute for the controlled evaluations in the paper.</p>
+</section>
+<section id="explore" class="explore section"><div class="wrap"><div class="section-kicker">BEYOND THE FIRST VIEW <span>04 / 05</span></div><div class="section-heading"><h2>Keep exploring.</h2><p>From quiet courtyards to unfamiliar worlds.<br>Move the camera. Keep the visual history.</p></div>
+  <div class="explore-grid"><figure class="video-frame"><video controls playsinline preload="none" poster="assets/chapter-6.jpg" aria-label="Free exploration in four environments"><source data-src="assets/chapter-6.mp4" type="video/mp4"></video><figcaption><span>01</span> Villages, gardens & courtyards</figcaption></figure><figure class="video-frame"><video controls playsinline preload="none" poster="assets/chapter-7.jpg" aria-label="Additional free exploration environments"><source data-src="assets/chapter-7.mp4" type="video/mp4"></video><figcaption><span>02</span> Backyards, interiors & landscapes</figcaption></figure></div>
+  <p class="media-note">Control overlays are derived from estimated camera poses. These are generated videos, not recordings of real environments.</p>
+  <details class="more-results"><summary>One requested motion, four environments <span>+</span></summary><figure class="video-frame"><video controls playsinline preload="none" poster="assets/chapter-1.jpg" aria-label="Four environments with the same requested motion"><source data-src="assets/chapter-1.mp4" type="video/mp4"></video></figure><p class="media-note">Synchronized playback at half speed, as in the original demonstration.</p></details></div>
+</section>
+<section id="citation" class="section wrap citation"><div class="section-kicker">TAKE A CLOSER LOOK <span>05 / 05</span></div><div class="section-heading"><h2>Build on the idea.</h2><a class="button ghost" href="https://github.com/rabberk/glimpse-project" target="_blank" rel="noopener">Project repository ↗</a></div><div class="citation-box"><div class="citation-top"><span>BIBTEX</span><button id="copy-citation" class="text-button">Copy citation ↗</button><span id="copy-status" role="status"></span></div><pre id="bibtex">@misc{xu2026glimpse,
+  title={GLIMPSE: Global--Local Indexing with Multi-Precision
+         Spectral Encoding for Explorable Video World Models},
+  author={Xu, Zhufeng and Lv, Henglei and Deng, Bailin and
+          Ding, Yikang and Liu, Xiaoqiang and Zhang, Guoxin and
+          Fu, Hongbo and Gao, Lin},
+  year={2026},
+  url={https://rabberk.github.io/glimpse-project/}
+}</pre></div><p class="release-note">This repository hosts the project website and demonstrations. Full research code and model weights are planned for release after acceptance.</p></section>
+</main>
+<footer class="wrap footer"><a class="brand" href="#top">GLIMPSE<span class="title-dot">.</span></a><span>Explore. Remember. Revisit.</span><a href="assets/paper.pdf">Read the research ↗</a></footer>
+<dialog id="demo-dialog" aria-labelledby="demo-title"><div class="dialog-head"><h2 id="demo-title">GLIMPSE / Full demonstration</h2><button id="close-demo" aria-label="Close video">×</button></div><video id="full-demo" controls playsinline preload="none" poster="assets/chapter-6.jpg"><source data-src="assets/demo.mp4" type="video/mp4"></video></dialog>
+</body></html>
